@@ -3,7 +3,9 @@ $(function() {
 	Parse.$ = jQuery;
 
 	// Replace this line with the one on your Quickstart Guide Page
-	Parse.initialize(k0OSMy6nTSCIigbMI8OGbiuE60ab8txGnuJnh5Fp, 1SRRpjMCMkImYTwbNaZiYgxRvxMBJv8BhPz9ZBsv, aiCVzzDjUar9nZW4zxHRezIdshDUNqKLEEfWDLpN) 
+	Parse.initialize("HC87tn6aA7c3sYx9X0vwwLVXeqHDRMYYmrUBK5zv", "3piNGGnRMhvWo8u9pKD9TDc1MJlWhlvK78Vr3fHo");
+	Parse.initialize("CTM Moca"); // Your App Name
+	Parse.serverURL = 'https://parseapi.back4app.com/'; // Your Server URL
 
 	var $container = $('.main-container'),
 		$sidebar = $('.blog-sidebar'),
@@ -71,7 +73,7 @@ $(function() {
 		Categories = Parse.Collection.extend({
 			model: Category
 		}),
-		BlogView = Parse.View.extend({
+		BlogView = Backbone.View.extend({
 			template: Handlebars.compile($('#blog-tpl').html()),
 			events: {
 				'submit .form-comment': 'submit'
@@ -102,21 +104,21 @@ $(function() {
 				});
 			}
 		}),
-		BlogsView = Parse.View.extend({
+		BlogsView = Backbone.View.extend({
 			template: Handlebars.compile($('#blogs-tpl').html()),
 			render: function() { 
 				var collection = { blog: this.collection.toJSON() };
 				this.$el.html(this.template(collection));
 			}
 		}),
-		CategoriesView = Parse.View.extend({
+		CategoriesView = Backbone.View.extend({
 			template: Handlebars.compile($('#categories-tpl').html()),
 			render: function() { 
 				var collection = { category: this.collection.toJSON() };
 				this.$el.html(this.template(collection));
 			}
 		}),
-		LoginView = Parse.View.extend({
+		LoginView = Backbone.View.extend({
 			template: Handlebars.compile($('#login-tpl').html()),
 			events: {
 				'submit .form-signin': 'login'
@@ -147,7 +149,7 @@ $(function() {
 				this.$el.html(this.template());
 			}
 		}),
-		BlogsAdminView = Parse.View.extend({
+		BlogsAdminView = Backbone.View.extend({
 			template: Handlebars.compile($('#admin-tpl').html()),
 			render: function() {
 				var collection = { 
@@ -157,7 +159,7 @@ $(function() {
 				this.$el.html(this.template(collection));
 			}
 		}),
-		WriteBlogView = Parse.View.extend({
+		WriteBlogView = Backbone.View.extend({
 			template: Handlebars.compile($('#write-tpl').html()),
 			events: {
 				'submit .form-write': 'submit'
@@ -209,7 +211,7 @@ $(function() {
 				
 			}
 		}),
-		BlogRouter = Parse.Router.extend({
+		BlogRouter = Backbone.Router.extend({
 		
 			// Here you can define some shared variables
 			initialize: function(options){
@@ -219,7 +221,7 @@ $(function() {
 			
 			// This runs when we start the router. Just leave it for now.
 			start: function(){
-				Parse.history.start({
+				Backbone.history.start({
 					// put in your directory below
 					root: '/tutorial_blog/'
 				});
