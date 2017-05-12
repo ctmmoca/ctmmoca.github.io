@@ -3,7 +3,7 @@ $(function() {
 	Parse.$ = jQuery;
 
 	// Replace this line with the one on your Quickstart Guide Page
-	Parse.initialize("k0OSMy6nTSCIigbMI8OGbiuE60ab8txGnuJnh5Fp");
+	Parse.initialize("k0OSMy6nTSCIigbMI8OGbiuE60ab8txGnuJnh5Fp", "6isNrwzGLeYwlxl3C80NErxRfe1cHXWexgm0vtGC");
 	Parse.serverURL = 'https://parseapi.back4app.com/';
 
 	var $container = $('.main-container'),
